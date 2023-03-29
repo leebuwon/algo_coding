@@ -12,7 +12,7 @@ import java.io.InputStreamReader;
  * 문자열은 영어 알파벳으로만 구성되어 있습니다.
  */
 
-public class Inf01S1 {
+public class Inf1S01 {
     public int solution(String str, char c){ // 프로그래머스식 입력 방식
         int answer = 0;
         str = str.toUpperCase(); // 모든 str을 대문자로 바꾼다.
@@ -32,7 +32,7 @@ public class Inf01S1 {
     }
 
     public static void main(String[] args) throws IOException { // 백준 방식의 입력
-        Inf01S1 T = new Inf01S1();
+        Inf1S01 T = new Inf1S01();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         String str = br.readLine();
