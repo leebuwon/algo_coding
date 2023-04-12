@@ -25,7 +25,8 @@ class Solution {
         System.out.println(emergencyList);
 
         for (int i = 0; i < emergency.length; i++) {
-            int index = emergencyList.lastIndexOf(emergency[i]);
+            int index = emergencyList.lastIndexOf(emergency[i]); // {3, 76, 24} And {3, 24, 76}
+            System.out.println(index);
             answer[i] = emergencyList.size() - index;
         }
         System.out.println(Arrays.toString(answer));
