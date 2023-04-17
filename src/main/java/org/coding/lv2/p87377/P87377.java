@@ -33,7 +33,6 @@ class Solution {
 
         // 문제에서 정수좌표만 구하라고 했다.
         if (x != (long) x) return null;
-        // 문제에서 정수좌표만 구하라고 했다.
         if (y != (long) y) return null;
 
         return Point.of(x, y);
