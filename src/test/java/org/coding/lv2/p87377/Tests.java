@@ -5,15 +5,18 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class Tests {
-
+public class Tests {
     @Test
-    @DisplayName("교점 구하기 [[1. -1, 0], [2, -1, 0]]")
+    @DisplayName("교점, [[1, -1, 0], [2, -1, 0]]")
     void t1() {
-        assertThat(new Solution().intersection(
-                new int[]{1, -1, 0}, new int[]{2, -1, 0}
+        assertThat(
+                new Solution().intersection(
+                        new int[]{1, -1, 0},
+                        new int[]{2, -1, 0}
                 )
-        ).isEqualTo(Point.of(0, 0));
+        ).isEqualTo(
+                Point.of(0, 0)
+        );
     }
 
     @Test
@@ -24,7 +27,9 @@ class Tests {
                         new int[]{1, -1, 0},
                         new int[]{4, -1, 0}
                 )
-        ).isEqualTo(Point.of(0, 0));
+        ).isEqualTo(
+                Point.of(0, 0)
+        );
     }
 
     @Test
@@ -35,6 +40,8 @@ class Tests {
                         new int[]{2, -1, 0},
                         new int[]{4, -1, 0}
                 )
-        ).isEqualTo(Point.of(0, 0));
+        ).isEqualTo(
+                Point.of(0, 0)
+        );
     }
 }
