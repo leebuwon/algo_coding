@@ -64,6 +64,15 @@ class Point {
         if (!(o instanceof Point point)) return false;
 
         if (x != point.x) return false;
+
         return y == point.y;
+    }
+
+    @Override
+    public String toString() {
+        return "Point{" +
+                "x=" + x +
+                ", y=" + y +
+                '}';
     }
 }
