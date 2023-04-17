@@ -1,11 +1,9 @@
 package org.coding.lv2.p87377;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class Tests {
 
@@ -15,7 +13,7 @@ class Tests {
         assertThat(new Solution().intersection(
                 new int[]{1, -1, 0}, new int[]{2, -1, 0}
                 )
-        ).isEqualTo(new long[]{0, 0});
+        ).isEqualTo(Point.of(0, 0));
     }
 
     @Test
@@ -26,9 +24,7 @@ class Tests {
                         new int[]{1, -1, 0},
                         new int[]{4, -1, 0}
                 )
-        ).isEqualTo(
-                new long[]{0, 0}
-        );
+        ).isEqualTo(Point.of(0, 0));
     }
 
     @Test
@@ -39,8 +35,6 @@ class Tests {
                         new int[]{2, -1, 0},
                         new int[]{4, -1, 0}
                 )
-        ).isEqualTo(
-                new long[]{0, 0}
-        );
+        ).isEqualTo(Point.of(0, 0));
     }
 }
