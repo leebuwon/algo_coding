@@ -21,10 +21,12 @@ class Solution {
         for (int i = 0; i < d.length; i++){
             sum += d[i];
 
+            // 예산이 모든 부서에게 주지 못할 경우
             if (sum > budget){
                 answer = 0;
                 answer += i;
                 break;
+            // 예산이 모든 부서에 줄 수 있을 경우
             } else {
                 answer = 0;
                 answer += d.length;
@@ -32,7 +34,6 @@ class Solution {
         }
 
         System.out.println(answer);
-
         return answer;
     }
 }
