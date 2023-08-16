@@ -8,7 +8,7 @@ public class P12915 {
     public static void main(String[] args) {
 //        String[] strings = {"sun", "bud", "car"};
         String[] strings = {"abce", "abcd", "cdx"};
-        new Solution().solution(strings, 1);
+        new Solution().solution(strings, 2);
     }
 }
 
@@ -16,8 +16,6 @@ public class P12915 {
 class Solution {
     public String[] solution(String[] strings, int n) {
         String[] answer = new String[strings.length];
-
-        Arrays.sort(strings);
 
         for (int i = 0; i < strings.length; i++){
             String temp = "";
