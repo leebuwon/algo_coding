@@ -29,8 +29,6 @@ class Solution {
                 }
 
                 if (strings[i].charAt(n) == strings[j].charAt(n)){
-                    System.out.println(strings[i] + " 1");
-                    System.out.println(strings[j] + " 2");
                     if (strings[i].compareTo(strings[j]) < 0) {
                         temp = strings[i];
                         strings[i] = strings[j];
