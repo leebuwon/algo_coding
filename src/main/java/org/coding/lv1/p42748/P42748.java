@@ -31,10 +31,10 @@ class Solution {
 
             for (int j = start[0] - 1; j <= start[1] - 1; j++){
                 arrList.add(array[j]);
-                Collections.sort(arrList);
             }
 
-            answer[i] += arrList.get(inArr[2] - 1);
+            Collections.sort(arrList);
+            answer[i] += arrList.get(start[2] - 1);
         }
 
         return answer;
