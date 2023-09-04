@@ -1,0 +1,51 @@
+package org.coding.inflearn;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Scanner;
+
+public class Inf6S01 {
+    public static void main(String[] args) throws IOException {
+//        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        Scanner kb = new Scanner(System.in);
+        int n = kb.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++){
+            arr[i] = kb.nextInt();
+        }
+        for (int x : solution(n, arr)){
+            System.out.print(x + " ");
+        }
+    }
+
+    /**
+     * 강사님 코드
+     * 삽입 정렬
+     */
+    private static int[] solution(int n, int[] arr) {
+        for (int i = 0; i < n - 1; i++) {
+            int idx = i;
+            for (int j = i + 1; j < n; j++){
+                if (arr[j] < arr[idx]){
+                    idx = j;
+                }
+                int temp = arr[i];
+                arr[i] = arr[idx];
+                arr[idx] = temp;
+            }
+        }
+
+        return arr;
+    }
+
+
+//    private static int[] solution(int n, int[] arr) {
+//
+//        Arrays.sort(arr);
+//
+//        return arr;
+//    }
+}
