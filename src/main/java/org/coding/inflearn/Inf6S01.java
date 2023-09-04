@@ -3,20 +3,20 @@ package org.coding.inflearn;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Scanner;
 
 public class Inf6S01 {
     public static void main(String[] args) throws IOException {
-//        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        Scanner kb = new Scanner(System.in);
-        int n = kb.nextInt();
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        int n = Integer.parseInt(br.readLine());
         int[] arr = new int[n];
-        for (int i = 0; i < n; i++){
-            arr[i] = kb.nextInt();
+
+        String[] input = br.readLine().split(" ");
+        for (int i = 0; i < n; i++) {
+            arr[i] = Integer.parseInt(input[i]);
         }
-        for (int x : solution(n, arr)){
+
+        for (int x : solution(n, arr)) {
             System.out.print(x + " ");
         }
     }
