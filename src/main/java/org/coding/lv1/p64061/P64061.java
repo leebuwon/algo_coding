@@ -10,10 +10,18 @@ public class P64061 {
         new Solution().solution(board, moves);
 
         // 0 -> 1 -> 1 -> 0 -> 3 -> 0 ->  3 -> 0 -> 2 // 1과 3이 터진다.
+
+
+        // 4 -> 3 -> 1 -> 1 -> 3 -> 2 -> 4
+        // stack : 4 -> ( 3 -> 1 -> 1 -> 3 ) -> 2 -> 4
+        // 바뀐 배열 : {{0,0,0,0,0},{0,0,0,0,0},{0,0,5,0,0},{0,2,4,0,2},{0,5,1,3,1}}
     }
 }
 
-
+/**
+ * 해설지 보고 풀이
+ * col과 i를 반대로 하여 해결하지 못함
+ */
 class Solution {
     public int solution(int[][] board, int[] moves) {
         int answer = 0;
@@ -46,6 +54,8 @@ class Solution {
                 System.out.println("stack : " + stack);
             }
         }
+
+        System.out.println(Arrays.deepToString(board));
 
         return answer;
     }
