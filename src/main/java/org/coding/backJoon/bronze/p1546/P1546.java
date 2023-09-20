@@ -20,24 +20,40 @@ public class P1546 {
         System.out.println(solution(n, arr));
     }
 
+    /**
+     * 책 풀이
+     */
     private static double solution(int n, int[] arr) {
         double answer = 0;
 
-        int maxScore = Integer.MIN_VALUE;
-        for (int i = 0; i < arr.length; i++){
-            if(maxScore < arr[i]){
-                maxScore = arr[i];
-            }
-        }
-
-        double[] doubles = new double[n];
+        long max = 0;
         for (int i = 0; i < n; i++){
-            doubles[i] = (double) arr[i] / maxScore * 100;
-            answer += doubles[i];
+            if (arr[i] > max){
+                max = arr[i];
+            }
+            answer += arr[i];
         }
 
-
-
-        return answer;
+        // 한번에 계산하는 방식
+        return answer * 100 / max / n;
     }
+
+//    private static double solution(int n, int[] arr) {
+//        double answer = 0;
+//
+//        int maxScore = Integer.MIN_VALUE;
+//        for (int i = 0; i < arr.length; i++){
+//            if(maxScore < arr[i]){
+//                maxScore = arr[i];
+//            }
+//        }
+//
+//        double[] doubles = new double[n];
+//        for (int i = 0; i < n; i++){
+//            doubles[i] = (double) arr[i] / maxScore * 100;
+//            answer += doubles[i];
+//        }
+//
+//        return answer;
+//    }
 }
