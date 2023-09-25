@@ -42,4 +42,16 @@ public class P2908 {
 
         return answer.toString();
     }
+
+    /**
+     * reverse 버전
+     */
+//    private static int solution(String[] str) {
+//        int A = Integer.parseInt(new StringBuilder().append(str[0]).reverse().toString());
+//        int B = Integer.parseInt(new StringBuilder().append(str[1]).reverse().toString());
+//
+//
+//
+//        return A > B ? A : B;
+//    }
 }
