@@ -15,6 +15,9 @@ public class Inf2S11 {
         System.out.println(solution(n, arr));
     }
 
+    /**
+     * 다시 풀어보기 (해결 못함 )
+     */
     private static int solution(int n, int[][] arr) {
         int answer = 0;
         int max = Integer.MIN_VALUE;
