@@ -59,4 +59,37 @@ public class P1253 {
 
         return answer;
     }
+
+    /**
+     * 다른 풀이
+     */
+//    private static int solution(int n, int[] arr) {
+//        int answer = 0;
+//       Arrays.sort(arr);
+//
+//       for (int k = 0; k < n; k++){
+//           int find = arr[k];
+//           int i = 0;
+//           int j = n - 1;
+//
+//           while (i < j){
+//               if (arr[i] + arr[j] == find){
+//                   if (i != k && j != k){
+//                       answer++;
+//                       break;
+//                   } else if (i == k){
+//                       i++;
+//                   } else if (j == k){
+//                       j--;
+//                   }
+//               } else if (arr[i] + arr[j] < find){
+//                   i++;
+//               } else {
+//                   j--;
+//               }
+//           }
+//       }
+//
+//       return answer;
+//    }
 }
