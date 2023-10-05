@@ -17,6 +17,39 @@ public class P1874 {
         System.out.println(solution(n, arr));
     }
 
+    /**
+     * 책 풀이
+     */
+//    private static String solution(int n, int[] arr) {
+//        Stack<Integer> stack = new Stack<>();
+//        StringBuffer bf = new StringBuffer();
+//        int num = 1;
+//        boolean result = true;
+//
+//        for (int i = 0; i < arr.length; i++){
+//            int su = arr[i];
+//            if (su >= num){
+//                while (su >= num){
+//                    stack.push(num++);
+//                    bf.append("+\n");
+//                }
+//                stack.pop();
+//                bf.append("-\n");
+//            }
+//            else {
+//                int m = stack.pop();
+//                if (m > su){
+//                    System.out.println("NO");
+//                    result = false;
+//                    break;
+//                } else {
+//                    bf.append("-\n");
+//                }
+//            }
+//        }
+//        return bf.toString();
+//    }
+
     private static String solution(int n, int[] arr) {
         StringBuilder answer = new StringBuilder();
 
