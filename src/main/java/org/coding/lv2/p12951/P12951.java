@@ -55,3 +55,23 @@ class Solution {
         return answer.toString();
     }
 }
+
+/**
+ * 첫 문자는 boolean이 true라 첫문자는 대문자.
+ * 두번째부터는 빈문자열이 나오지 않으면 flag에 false 값을 넣어줘서 소문자로 넣어줌
+ */
+//class Solution {
+//    public String solution(String s) {
+//        String answer = "";
+//        String[] sp = s.toLowerCase().split("");
+//        System.out.println(Arrays.toString(sp));
+//        boolean flag = true;
+//
+//        for(String ss : sp) {
+//            answer += flag ? ss.toUpperCase() : ss;
+//            flag = ss.equals(" ") ? true : false;
+//        }
+//
+//        return answer;
+//    }
+//}
