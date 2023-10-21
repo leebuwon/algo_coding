@@ -23,17 +23,24 @@ public class P2501 {
             }
         }
 
-        int answer = 0;
-        for (int i = 0; i < arrList.size(); i++){
-            if (i == q - 1){
-                answer = arrList.get(i);
-            }
-        }
+//        int answer = 0;
+//        for (int i = 0; i < arrList.size(); i++){
+//            if (i == q - 1){
+//                answer = arrList.get(i);
+//            }
+//        }
+//
+//        if (answer == 0){
+//            System.out.print(answer);
+//        } else {
+//            System.out.print(answer);
+//        }
 
-        if (answer == 0){
-            System.out.print(answer);
-        } else {
-            System.out.print(answer);
-        }
+
+        /**
+         * 코드 리팩토링
+         */
+        int answer = (q <= arrList.size()) ? arrList.get(q - 1) : 0;
+        System.out.print(answer);
     }
 }
