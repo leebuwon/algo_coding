@@ -3,11 +3,14 @@ package org.coding.backJoon.bronze.p2581;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.StringTokenizer;
+import java.util.*;
 
+/**
+ * 에라토스테네스의 체
+ */
 public class P2581 {
+    static boolean[] isPrime;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -19,40 +22,78 @@ public class P2581 {
     }
 
     private static void solution(int n, int m) {
-        int answer = 0;
+        isPrime = new boolean[m + 1];
+        get_prime();
 
-        List<Integer> arrList = new ArrayList<>();
-        for (int i = n; i <= m; i++){
-            int num = primeNumber(i);
+        System.out.println(Arrays.toString(isPrime));
 
-            if (num != 0){
-                arrList.add(num);
+        int sum = 0;
+        int min = Integer.MAX_VALUE;
+        for (int i = n; i <= m; i++) {
+            if (!isPrime[i]) {
+                sum += i;
+                if (min == Integer.MAX_VALUE) {
+                    min = i;
+                }
             }
         }
 
-        for (int i = 0; i < arrList.size(); i++){
-            answer += arrList.get(i);
-        }
-
-        if (answer == 0){
+        if (sum == 0) {
             System.out.println(-1);
         } else {
-            System.out.println(answer);
-            System.out.println(arrList.get(0));
+            System.out.println(sum);
+            System.out.println(min);
         }
     }
 
-    private static int primeNumber(int num) {
-        if (num == 1){
-            return 0;
-        }
+    private static void get_prime() {
+        isPrime[0] = true;
+        isPrime[1] = true;
 
-        for (int i = 2; i < num; i++){
-            if (num % i == 0){
-                return 0;
+        for (int i = 2; i <= Math.sqrt(isPrime.length); i++) {
+            if (isPrime[i]) continue;
+            for (int j = i * i; j < isPrime.length; j += i) {
+                isPrime[j] = true;
             }
         }
-
-        return num;
     }
 }
+
+//    private static void solution(int n, int m) {
+//        int answer = 0;
+//
+//        List<Integer> arrList = new ArrayList<>();
+//        for (int i = n; i <= m; i++){
+//            int num = primeNumber(i);
+//
+//            if (num != 0){
+//                arrList.add(num);
+//            }
+//        }
+//
+//        for (int i = 0; i < arrList.size(); i++){
+//            answer += arrList.get(i);
+//        }
+//
+//        if (answer == 0){
+//            System.out.println(-1);
+//        } else {
+//            System.out.println(answer);
+//            System.out.println(arrList.get(0));
+//        }
+//    }
+//
+//    private static int primeNumber(int num) {
+//        if (num == 1){
+//            return 0;
+//        }
+//
+//        for (int i = 2; i < num; i++){
+//            if (num % i == 0){
+//                return 0;
+//            }
+//        }
+//
+//        return num;
+//    }
+//}
