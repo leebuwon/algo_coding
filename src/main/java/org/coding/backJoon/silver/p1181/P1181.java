@@ -30,14 +30,24 @@ public class P1181 {
             strList.add(s);
         }
 
-        Collections.sort(strList, new Comparator<String>() {
-            @Override
-            public int compare(String o1, String o2) {
-                if (o1.length() == o2.length()){
-                    return o1.compareTo(o2);
-                }
-                return o1.length() - o2.length();
+//        Collections.sort(strList, new Comparator<String>() {
+//            @Override
+//            public int compare(String o1, String o2) {
+//                if (o1.length() == o2.length()){
+//                    return o1.compareTo(o2);
+//                }
+//                return o1.length() - o2.length();
+//            }
+//        });
+
+        /**
+         * 란다 형식
+         */
+        Collections.sort(strList, (o1, o2) -> {
+            if (o1.length() == o2.length()){
+                return o1.compareTo(o2);
             }
+            return o1.length() - o2.length();
         });
 
         for (int i = 0; i < strList.size(); i++){
