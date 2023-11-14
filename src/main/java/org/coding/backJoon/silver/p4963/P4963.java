@@ -46,13 +46,27 @@ public class P4963 {
                 if (arr[i][j] == 1){
                     if (!visited[i][j]){
                         answer++;
-                        bfs(arr, i, j);
+//                        bfs(arr, i, j);
+                        dfs(arr, i, j);
                     }
                 }
             }
         }
 
         System.out.println(answer);
+    }
+
+    private static void dfs(int[][] arr, int startX, int startY) {
+        visited[startX][startY] = true;
+
+        for (int i = 0; i < 8; i++){
+            int num1 = startX + dx[i];
+            int num2 = startY + dy[i];
+
+            if (0 <= num1 && num1 < h && 0 <= num2 && num2 < w && !visited[num1][num2] && arr[num1][num2] == 1){
+                dfs(arr, num1, num2);
+            }
+        }
     }
 
     private static void bfs(int[][] arr, int startX, int startY) {
