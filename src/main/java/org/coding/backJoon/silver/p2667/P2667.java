@@ -10,7 +10,7 @@ public class P2667 {
     static char[][] map;
     static int[] dx = {0, 1, 0, -1};
     static int[] dy = {1, 0, -1, 0};
-//    static int countRally = 0;
+    static int countRally;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -33,11 +33,11 @@ public class P2667 {
             for (int j = 0; j < map[i].length; j++){
                 if (!visited[i][j]){
                     if (map[i][j] == '1'){
-//                        countRally = 0;
-                        int bfsCount = bfs(map, i, j);
-//                        int dfsCount = dfs(map, i, j);
-                        arrList.add(bfsCount);
-//                        arrList.add(dfsCount);
+                        countRally = 1;
+//                        int bfsCount = bfs(map, i, j);
+                        int dfsCount = dfs(map, i, j);
+//                        arrList.add(bfsCount);
+                        arrList.add(dfsCount);
                         count++;
                     }
                 }
@@ -51,7 +51,7 @@ public class P2667 {
         System.out.println(sb.toString());
     }
 
-    private static void dfs(char[][]map, int startX, int startY){
+    private static int dfs(char[][]map, int startX, int startY){
         visited[startX][startY] = true;
 
         for (int i = 0; i < 4; i++){
@@ -60,35 +60,35 @@ public class P2667 {
 
             if (num1 >= 0 && num1 < map.length && num2 >= 0 && num2 < map.length && !visited[num1][num2] && map[num1][num2] == '1'){
                 visited[num1][num2] = true;
-                dfs(map, startX, startY);
-//                countRally++;
+                countRally++;
+                dfs(map, num1, num2);
             }
         }
 
-//        return countRally;
-    }
-
-    private static int bfs(char[][] map, int startX, int startY) {
-        visited[startX][startY] = true;
-        Queue<int[]> queue = new LinkedList<>();
-        queue.add(new int[]{startX, startY});
-
-        int countRally = 1;
-        while (!queue.isEmpty()){
-            int[] s = queue.poll();
-
-            for (int i = 0; i < 4; i++){
-                int num1 = s[0] + dx[i];
-                int num2 = s[1] + dy[i];
-
-                if (num1 >= 0 && num1 < map.length && num2 >= 0 && num2 < map.length && !visited[num1][num2] && map[num1][num2] == '1'){
-                    visited[num1][num2] = true;
-                    queue.add(new int[]{num1, num2});
-                    countRally++;
-                }
-            }
-
-        }
         return countRally;
     }
+
+//    private static int bfs(char[][] map, int startX, int startY) {
+//        visited[startX][startY] = true;
+//        Queue<int[]> queue = new LinkedList<>();
+//        queue.add(new int[]{startX, startY});
+//
+//        int countRally = 1;
+//        while (!queue.isEmpty()){
+//            int[] s = queue.poll();
+//
+//            for (int i = 0; i < 4; i++){
+//                int num1 = s[0] + dx[i];
+//                int num2 = s[1] + dy[i];
+//
+//                if (num1 >= 0 && num1 < map.length && num2 >= 0 && num2 < map.length && !visited[num1][num2] && map[num1][num2] == '1'){
+//                    visited[num1][num2] = true;
+//                    queue.add(new int[]{num1, num2});
+//                    countRally++;
+//                }
+//            }
+//
+//        }
+//        return countRally;
+//    }
 }
