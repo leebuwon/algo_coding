@@ -35,28 +35,52 @@ public class P7795 {
     }
 
     private static void solution(int[] arr1, int[] arr2) {
-        StringBuilder sb = new StringBuilder();
+        // https://www.acmicpc.net/source/56384180
+        Arrays.sort(arr2);
+
         int count = 0;
         for (int num : arr1){
-            int start = 0;
-            int end = arr2.length - 1;
-            while (start <= end){
-                if (num > arr2[start]){
-                    count++;
-                }
+            int idx = lowerBound(arr2, arr2.length, num);
+                count += idx;
+            }
 
-                if (start != end){
-                    if (num > arr2[end]) {
-                        count++;
-                        end--;
-                    }
-                }
+            /**
+             * 내 풀이 (2942ms)
+             */
+//            int start = 0;
+//            int end = arr2.length - 1;
+//            while (start <= end){
+//                if (num > arr2[start]){
+//                    count++;
+//                }
+//
+//                if (start != end){
+//                    if (num > arr2[end]) {
+//                        count++;
+//                        end--;
+//                    }
+//                }
+//
+//                start++;
+//            }
 
-                start++;
+
+
+        System.out.println(count);
+    }
+
+    private static int lowerBound(int[] arr2, int length, int num) {
+        int start = 0;
+        int end = length;
+        while (start < end) {
+            int mid = (start + end) / 2;
+            if (arr2[mid] >= num){
+                end = mid;
+            } else {
+                start = mid + 1;
             }
         }
 
-        sb.append(count).append("\n");
-        System.out.print(sb.toString());
+        return start;
     }
 }
