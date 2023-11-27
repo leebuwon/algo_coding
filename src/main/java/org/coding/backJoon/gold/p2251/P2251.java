@@ -7,7 +7,7 @@ import java.util.*;
 
 public class P2251 {
 
-    static boolean[][][] visited;
+    static boolean[][] visited;
     static List<Integer> answer = new ArrayList<>();
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -15,7 +15,7 @@ public class P2251 {
         int a = Integer.parseInt(st.nextToken());
         int b = Integer.parseInt(st.nextToken());
         int c = Integer.parseInt(st.nextToken());
-        visited = new boolean[a + 1][b + 1][c + 1];
+        visited = new boolean[a + 1][b + 1];
 
         bfs(a, b, c);
 
@@ -31,11 +31,11 @@ public class P2251 {
         while (!queue.isEmpty()) {
             int[] s = queue.poll();
 
-            if (visited[s[0]][s[1]][s[2]]) {
+            if (visited[s[0]][s[1]]) {
                 continue; // 이미 방문한 상태라면 무시
             }
 
-            visited[s[0]][s[1]][s[2]] = true;
+            visited[s[0]][s[1]] = true;
 
             if (s[0] == 0) { // a 물통이 비어있을 경우 정답 처리
                 answer.add(s[2]);
@@ -52,7 +52,7 @@ public class P2251 {
 
     private static void moveWater(Queue<int[]> queue, int[] current, int to, int fromIndex, int toIndex) {
         int[] arr = Arrays.copyOf(current, 3);
-
+        //
         int water = Math.min(current[fromIndex], to - current[toIndex]);
         arr[fromIndex] -= water;
         arr[toIndex] += water;
