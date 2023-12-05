@@ -6,6 +6,9 @@ import java.io.InputStreamReader;
 import java.util.Map;
 import java.util.StringTokenizer;
 
+/**
+ * 풀이 참조
+ */
 public class P13397 {
     static int[] arr;
     static int n;
