@@ -1,4 +1,4 @@
-package org.coding.backJoon.silver.p15683;
+package org.coding.backJoon.gold.p15683;
 
 import java.io.BufferedReader;
 import java.io.IOException;
