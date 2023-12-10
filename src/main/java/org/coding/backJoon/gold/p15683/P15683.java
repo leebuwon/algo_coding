@@ -208,55 +208,35 @@ public class P15683 {
         left(cctvList);
     }
 
-    private static void right(List<Integer> cctvList) {
+    private static void processDirection(List<Integer> cctvList, int dx, int dy) {
         int startX = cctvList.get(0);
-        int startY = cctvList.get(1) + 1;
-        for (int i = startY; i < m; i++){
-            if (map[startX][i] == 6){
-                break;
+        int startY = cctvList.get(1);
+
+        int x = startX + dx;
+        int y = startY + dy;
+
+        while (x >= 0 && x < n && y >= 0 && y < m && map[x][y] != 6) {
+            if (map[x][y] == 0) {
+                visited[x][y] = true;
             }
-            if (map[startX][i] == 0){
-                visited[startX][i] = true;
-            }
+            x += dx;
+            y += dy;
         }
+    }
+
+    private static void right(List<Integer> cctvList) {
+        processDirection(cctvList, 0, 1);
     }
 
     private static void left(List<Integer> cctvList) {
-        int startX = cctvList.get(0);
-        int startY = cctvList.get(1) - 1;
-        for (int i = startY; i >= 0; i--){
-            if (map[startX][i] == 6){
-                break;
-            }
-            if (map[startX][i] == 0){
-                visited[startX][i] = true;
-            }
-        }
+        processDirection(cctvList, 0, -1);
     }
 
     private static void down(List<Integer> cctvList) {
-        int startX = cctvList.get(0) + 1;
-        int startY = cctvList.get(1);
-        for (int i = startX; i < n; i++){
-            if (map[i][startY] == 6){
-                break;
-            }
-            if (map[i][startY] == 0){
-                visited[i][startY] = true;
-            }
-        }
+        processDirection(cctvList, 1, 0);
     }
 
     private static void up(List<Integer> cctvList) {
-        int startX = cctvList.get(0) - 1;
-        int startY = cctvList.get(1);
-        for (int i = startX; i >= 0; i--){
-            if (map[i][startY] == 6){
-                break;
-            }
-            if (map[i][startY] == 0){
-                visited[i][startY] = true;
-            }
-        }
+        processDirection(cctvList, -1, 0);
     }
 }
