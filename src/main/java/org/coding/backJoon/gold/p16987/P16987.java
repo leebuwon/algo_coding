@@ -38,50 +38,37 @@ public class P16987 {
     }
 
     private static void dfs(int currentEgg, int count) {
-        if (currentEgg == n - 1){
-            max = Math.max(max, count);
-        }
-
-        // 마지막 계란 까지 갔을 경우 max값 갱신
         if (currentEgg == n) {
             max = Math.max(max, count);
             return;
         }
 
-        // 현재 계란이 깨져 있으면 다음으로 넘어가기
         if (egg[currentEgg][0] <= 0) {
             dfs(currentEgg + 1, count);
             return;
         }
 
-        // 계란이 다 꺠져 있을 경우도 넘어가기 (참고)
         if (count == n - 1){
             dfs(currentEgg + 1, count);
             return;
         }
 
-        // 계란 부수기
         for (int i = 0; i < n; i++) {
-            // 현재 계란으로 같으면 넘어가기!
             if (currentEgg == i) {
                 continue;
             }
 
-            // 다음 계란이 깨져 있으면 그냥 넘기기.
             if (egg[i][0] <= 0) {
                 continue;
             }
 
-            // 계란 부수기!
             egg[i][0] -= egg[currentEgg][1];
             egg[currentEgg][0] -= egg[i][1];
 
-            // 계란으로 쳤을 경우 깨질 경우
             if (egg[i][0] <= 0) {
                 count += 1;
             }
 
-            // 들고 있는 계란이 깨질 경우
             if (egg[currentEgg][0] <= 0) {
                 count += 1;
             }
