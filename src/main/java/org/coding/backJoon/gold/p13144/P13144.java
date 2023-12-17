@@ -23,6 +23,10 @@ public class P13144 {
         solution(arr);
     }
 
+    /**
+     * 메모리 초과
+     * 추후에 다시 풀기..
+     */
     private static void solution(int[] arr) {
         int count = 0;
 
