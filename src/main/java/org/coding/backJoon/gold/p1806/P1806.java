@@ -24,6 +24,36 @@ public class P1806 {
         solution(arr, s);
     }
 
+    // 투 포인터
+    private static void solution2(int[] arr, int s) {
+        int start = 0;
+        int end = 0;
+        int sum = arr[start];
+
+        while (start < n && end < n){
+            if (min == 1){
+                break;
+            }
+
+            if (sum < s){
+                end++;
+                if (end < n){
+                    sum += arr[end];
+                } else {
+                    break;
+                }
+            } else {
+                min = Math.min(min, end - start + 1);
+
+                sum -= arr[start];
+                start++;
+            }
+        }
+
+        System.out.println(min != Integer.MAX_VALUE ? min : 0);
+    }
+
+    // 슬라이딩 윈도우 (사실상 투 포인터)
     private static void solution(int[] arr, int s) {
         int start = 0;
         int sum = 0;
