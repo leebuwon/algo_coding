@@ -14,7 +14,7 @@ class Solution {
     public int[] solution(int[] fees, String[] records) {
         Map<String, Integer> map = new HashMap<>();
         Map<String, String> inAndOutCheck = new HashMap<>();
-        Map<String, Integer> feeCar = new HashMap<>();
+        Map<String, Integer> feeCar = new TreeMap<>();
 
         for (String record : records) {
             String[] split = record.split(" ");
@@ -51,13 +51,9 @@ class Solution {
             }
         }
 
-
-        List<Map.Entry<String, Integer>> sortedFeeCar = new ArrayList<>(feeCar.entrySet());
-        sortedFeeCar.sort(Map.Entry.comparingByKey());
-
-        int[] answer = new int[sortedFeeCar.size()];
+        int[] answer = new int[feeCar.size()];
         int index = 0;
-        for (Map.Entry<String, Integer> entry : sortedFeeCar) {
+        for (Map.Entry<String, Integer> entry : feeCar.entrySet()) {
             int totalTime = entry.getValue();
 
             int baseTime = fees[0];
@@ -78,6 +74,8 @@ class Solution {
             answer[index] = totalFee;
             index++;
         }
+
+        System.out.println(Arrays.toString(answer));
 
         return answer;
     }
